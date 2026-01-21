@@ -3,11 +3,8 @@ import React from 'react'
 import { useFormContext } from "react-hook-form"
 
 import { Input } from "@/components/ui/input"
-import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field"
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Textarea } from "@/components/ui/textarea"
-
-
-
 
 const Personal = () => {
 
@@ -20,7 +17,7 @@ const Personal = () => {
 
     <div className='flex flex-col gap-6 px-7 py-2 mb-8'>
       <h1 className='font-bold text-lg'>Personal Information</h1>
-      <form className='flex flex-col gap-4'>
+      <div className='flex flex-col gap-4'>
         <FieldGroup>
           <Field>
             <FieldLabel htmlFor="personal.name">Full name:</FieldLabel>
@@ -89,7 +86,7 @@ const Personal = () => {
           </Field>
         </FieldGroup>
         
-      </form>
+      </div>
 
 
     </div>

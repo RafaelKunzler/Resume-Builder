@@ -9,6 +9,12 @@ const Resume = () => {
     name: "personal",
   })
 
+  const experience = useWatch({
+    control,
+    name: "experience",
+  })
+
+
   return (
     <div>
       <h1>{personal?.name || "Seu nome"}</h1>
@@ -18,6 +24,8 @@ const Resume = () => {
       <h1>{personal?.linkedin}</h1>
       <h1>{personal?.github}</h1>
       <h1>{personal?.summary}</h1>
+
+      <h1>{experience[0]?.end}</h1>
 
     </div>
   )

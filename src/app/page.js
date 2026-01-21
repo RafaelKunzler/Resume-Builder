@@ -10,9 +10,10 @@ export default function Home() {
   return (
     <ResumeProvider>
       <div className="flex">
+      
         <div className="w-4/12 h-screen bg-zinc-100">          
           <FormsNavigation />                  
-        </div>
+        </div>      
 
         <div className="w-8/12">
           <Resume />

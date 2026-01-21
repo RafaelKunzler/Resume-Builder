@@ -14,24 +14,54 @@ const schema = z.object({
     github: z.string(),
     summary: z.string(). min(10, "Minimum 10 characters")
   }),
+  experienceForm: z.object({
+    company: z.string().min(1),
+    role: z.string().min(1),
+    start: z.string().regex(/^(0[1-9]|1[0-2])\/\d{4}$/, "Formato inválido. Use MM/AAAA"),
+    end: z.union([z.string().regex(/^(0[1-9]|1[0-2])\/\d{4}$/, "Formato inválido. Use MM/AAAA"), z.literal("Currently")]),
+    description: z.string().optional()
+  }),
+  experience: z.array({
+    company: z.string().min(1),
+    role: z.string().min(1),
+    start: z.string().regex(/^(0[1-9]|1[0-2])\/\d{4}$/, "Formato inválido. Use MM/AAAA"),
+    end: z.union([z.string().regex(/^(0[1-9]|1[0-2])\/\d{4}$/, "Formato inválido. Use MM/AAAA"), z.literal("Currently")]),
+    description: z.string().optional()
+  })
 
 
 })
 
 export function ResumeProvider({ children }) {
   const methods = useForm({
+    mode: "onBlur",
     defaultValues: {
       personal: {
         name: "",
         email: "",
-      }
+      },
+      experienceForm: {
+        company: "",
+        role: "",
+        start: "",
+        end: "",
+        description: "",
+      },
+      experience: [],
     },
     resolver: zodResolver(schema)
   });
 
+  const onFinalSubmit = () => {
+    console.log("Submit");
+    
+  }
+
   return(
     <FormProvider {...methods}>
-      {children}
+      <form onSubmit={methods.handleSubmit(onFinalSubmit)}>
+        {children}
+      </form>
     </FormProvider>
   )
 }
