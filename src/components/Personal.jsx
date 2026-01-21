@@ -1,33 +1,16 @@
 import React from 'react'
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { SubmitHandler, useForm } from "react-hook-form"
-import { z } from "zod"
 
+import { useFormContext } from "react-hook-form"
 
-const schema = z.object({
-  name: z.string().min(2, "Invalid name"),
-  email: z.email(),
-  phone: z.string().min(10, "Invalid phone number").max(15, "Invalid phone number").regex(/^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/, "Invalid phone number"),
-  location: z.string(),
-  linkedin: z.string(),
-  github: z.string(),
-  summary: z.string(). min(10, "Minimum 10 characters")
-})
 
 const Personal = () => {
 
   const { 
-    register, 
-    handleSubmit, 
-    setError,
-    formState: {errors, isSubmitting} 
-  } = useForm({
-    defaultValues: {
-      email: "test@email.com",
-    },
-    resolver: zodResolver(schema),
-  })
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting},    
+   } = useFormContext()
 
   const onSubmit = async (data) => {
     try {
@@ -45,81 +28,81 @@ const Personal = () => {
       <h1>Personal Information: </h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label htmlFor="name">
+          <label htmlFor="personal.name">
             Full name:
           </label>
           <input 
-            {...register("name")} 
+            {...register("personal.name")} 
             type="text" 
             placeholder="Name"             
           />          
-          {errors.name && <div className="text-red-500 text-xs">{errors.name.message}</div>}
+          {errors.personal?.name && <div className="text-red-500 text-xs">{errors.personal?.name.message}</div>}
         </div>
 
         <div>
-          <label htmlFor="email">
+          <label htmlFor="personal.email">
             E-mail:
           </label>
           <input 
-            {...register("email")} 
+            {...register("personal.email")} 
             type="email" 
             placeholder="E-mail" 
           />
-          {errors.email && <div className="text-red-500 text-xs">{errors.email.message}</div>}
+          {errors.personal?.email && <div className="text-red-500 text-xs">{errors.personal?.email.message}</div>}
         </div>
 
         <div>
-          <label htmlFor="phone">
+          <label htmlFor="personal.phone">
             Phone number:
           </label>
           <input
-            {...register("phone")}
+            {...register("personal.phone")}
             type="tel"
             placeholder="Phone number"
           />
-          {errors.phone && <div className="text-red-500 text-xs">{errors.phone.message}</div>}
+          {errors.personal?.phone && <div className="text-red-500 text-xs">{errors.personal?.phone.message}</div>}
         </div>
 
         <div>
-          <label htmlFor="location">
+          <label htmlFor="personal.location">
             Location:
           </label>
           <input 
-            {...register("location")}
+            {...register("personal.location")}
             type="text"
             placeholder='Location'
           />
-          {errors.location && <div className="text-red-500 text-xs">{errors.location.message}</div>}
+          {errors.personal?.location && <div className="text-red-500 text-xs">{errors.personal?.location.message}</div>}
         </div>
 
         <div>
-          <label htmlFor="linkedin">
+          <label htmlFor="personal.linkedin">
             Linkedin:
           </label>
           <input 
-            {...register("linkedin")}
+            {...register("personal.linkedin")}
             type="text" 
             placeholder='Linkedin link'
           />
         </div>
 
         <div>
-          <label htmlFor="github">
+          <label htmlFor="personal.github">
             Github:
           </label>
           <input 
-            {...register("github")}
+            {...register("personal.github")}
             type="text" 
             placeholder='Github link'
           />
         </div>
 
         <div>
-          <label htmlFor="summary">
+          <label htmlFor="personal.summary">
             Summary:
           </label>
           <input 
-            {...register("summary")}
+            {...register("personal.summary")}
             type="text" 
             placeholder='Summary about yourself'
           />
