@@ -103,19 +103,11 @@ const Personal = () => {
           </label>
           <input 
             {...register("personal.summary")}
-            type="text" 
+            type="textarea" 
             placeholder='Summary about yourself'
           />
         </div>
-
-        
-
-
-          <button disabled={isSubmitting} type="submit">
-            {isSubmitting ? "Loading..." : "Submit"}
-          </button>
-          {errors.root && <div className="text-red-500">{errors.root.message}</div>}
-        </form>
+      </form>
     </div>
   )
 }
