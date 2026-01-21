@@ -2,6 +2,7 @@
 import Image from "next/image";
 
 import Personal from "@/components/Personal";
+import Resume from "@/components/Resume";
 
 export default function Home() { 
 
@@ -11,7 +12,7 @@ export default function Home() {
         <Personal />
       </div>
       <div className="w-8/12">
-          
+        <Resume />
       </div>
     </div>
   );
