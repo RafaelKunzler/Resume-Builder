@@ -21,8 +21,8 @@ import Skills from './Skills'
 
 const FormsNavigation = () => {
   return (
-    <Tabs defaultValue="personal" className="flex">
-      <TabsList variant="line">
+    <Tabs defaultValue="personal">
+      <TabsList variant="line" className="flex w-full">
         <TabsTrigger value="personal">Personal</TabsTrigger>
         <TabsTrigger value="experience">Experience</TabsTrigger>
         <TabsTrigger value="education">Education</TabsTrigger>
