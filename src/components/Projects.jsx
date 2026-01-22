@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { useFormContext, useWatch } from "react-hook-form"
 
@@ -9,6 +10,8 @@ import { Button } from './ui/button'
 import Infocard from './Infocard'
 
 const Projects = () => {
+  const { t } = useTranslation()
+
   const {
     register,
     setValue,
@@ -57,7 +60,7 @@ const Projects = () => {
 
   return (
     <div className='flex flex-col gap-6 px-7 py-2 mb-8'>
-      <h1 className='font-bold text-lg'>Portfolio Projects</h1>
+      <h1 className='font-bold text-lg'>{t('Portfolio Projects')}</h1>
       <div className='flex flex-col gap-4'>
 
         {projects?.map((project, index) => (
@@ -79,58 +82,58 @@ const Projects = () => {
 
         <FieldGroup>
           <Field>
-            <FieldLabel htmlFor="projectForm.name">Project Name: </FieldLabel>
+            <FieldLabel htmlFor="projectForm.name">{t('Project Name')}: </FieldLabel>
             <Input
               {...register("projectForm.name")}
               type="text"
-              placeholder="Enter project name..."
+              placeholder={t('Enter project name...')}
             />
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="projectForm.description">Description: </FieldLabel>
+            <FieldLabel htmlFor="projectForm.description">{t('Description')}: </FieldLabel>
             <Textarea
               {...register("projectForm.description")}
-              placeholder="Brief description of the project..."
+              placeholder={t('Brief description of the project...')}
               rows={3}
             />
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="projectForm.technologies">Technologies/Tools: </FieldLabel>
+            <FieldLabel htmlFor="projectForm.technologies">{t('Technologies/Tools')}: </FieldLabel>
             <Input
               {...register("projectForm.technologies")}
               type="text"
-              placeholder="e.g., React, Node.js, MongoDB..."
+              placeholder={t('e.g., React, Node.js, MongoDB...')}
             />
           </Field>
 
           <FieldGroup className="grid max-w-md grid-cols-1 gap-4">
             <Field>
-              <FieldLabel htmlFor="projectForm.url">Project URL (optional):</FieldLabel>
+              <FieldLabel htmlFor="projectForm.url">{t('Project URL (optional):')}</FieldLabel>
               <Input
                 {...register("projectForm.url")}
                 type="url"
-                placeholder="https://your-project.com"
+                placeholder={t('https://your-project.com')}
               />
             </Field>
 
             <Field>
-              <FieldLabel htmlFor="projectForm.github">GitHub Repository (optional):</FieldLabel>
+              <FieldLabel htmlFor="projectForm.github">{t('GitHub Repository (optional):')}</FieldLabel>
               <Input
                 {...register("projectForm.github")}
                 type="url"
-                placeholder="https://github.com/username/repo"
+                placeholder={t('https://github.com/username/repo')}
               />
             </Field>
           </FieldGroup>
 
           <FieldGroup>
             <Field>
-              <FieldLabel htmlFor="projectForm.features">Key Features & Achievements</FieldLabel>
+              <FieldLabel htmlFor="projectForm.features">{t('Key Features & Achievements')}</FieldLabel>
               <Textarea
                 {...register("projectForm.features")}
-                placeholder="List key features, challenges overcome, or notable achievements..."
+                placeholder={t('List key features, challenges overcome, or notable achievements...')}
                 rows={4}
               />
             </Field>
@@ -140,7 +143,7 @@ const Projects = () => {
             type="button"
             onClick={handleAddProject}
           >
-            Add Project
+            {t('Add Project')}
           </Button>
         </FieldGroup>
       </div>

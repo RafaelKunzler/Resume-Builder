@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { useFormContext } from "react-hook-form"
 
@@ -7,6 +8,7 @@ import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Textarea } from "@/components/ui/textarea"
 
 const Personal = () => {
+  const { t } = useTranslation()
 
   const {
     register,
@@ -16,72 +18,72 @@ const Personal = () => {
   return (
 
     <div className='flex flex-col gap-6 px-7 py-2 mb-8'>
-      <h1 className='font-bold text-lg'>Personal Information</h1>
+      <h1 className='font-bold text-lg'>{t('Personal Information')}</h1>
       <div className='flex flex-col gap-4'>
         <FieldGroup>
           <Field>
-            <FieldLabel htmlFor="personal.name">Full name:</FieldLabel>
+            <FieldLabel htmlFor="personal.name">{t('Full Name')}:</FieldLabel>
             <Input
               {...register("personal.name")}
               type="text"
-              placeholder="Name"
+              placeholder={t('Full Name')}
             />
             {errors.personal?.name && <div className="text-red-500 text-xs">{errors.personal?.name.message}</div>}
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="personal.email">E-mail:</FieldLabel>
+            <FieldLabel htmlFor="personal.email">{t('Email')}:</FieldLabel>
             <Input
               {...register("personal.email")}
               type="email"
-              placeholder="E-mail"
+              placeholder={t('Email')}
             />
             {errors.personal?.email && <div className="text-red-500 text-xs">{errors.personal?.email.message}</div>}
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="personal.phone">Phone number:</FieldLabel>
+            <FieldLabel htmlFor="personal.phone">{t('Phone')}:</FieldLabel>
             <Input
               {...register("personal.phone")}
               type="tel"
-              placeholder="Phone number"
+              placeholder={t('Phone')}
             />
             {errors.personal?.phone && <div className="text-red-500 text-xs">{errors.personal?.phone.message}</div>}
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="personal.location">Location:</FieldLabel>
+            <FieldLabel htmlFor="personal.location">{t('Location')}:</FieldLabel>
             <Input
               {...register("personal.location")}
               type="text"
-              placeholder="Location"
+              placeholder={t('Location')}
             />
             {errors.personal?.location && <div className="text-red-500 text-xs">{errors.personal?.location.message}</div>}
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="personal.linkedin">Linkedin:</FieldLabel>
+            <FieldLabel htmlFor="personal.linkedin">{t('LinkedIn')}:</FieldLabel>
             <Input
               {...register("personal.linkedin")}
               type="text"
-              placeholder='Linkedin link'
+              placeholder={t('LinkedIn')}
             />
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="personal.github">Github:</FieldLabel>
+            <FieldLabel htmlFor="personal.github">{t('GitHub')}:</FieldLabel>
             <Input
               {...register("personal.github")}
               type="text"
-              placeholder='Github link'
+              placeholder={t('GitHub')}
             />
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="personal.summary">Summary:</FieldLabel>
+            <FieldLabel htmlFor="personal.summary">{t('Professional Summary')}:</FieldLabel>
             <Textarea
               {...register("personal.summary")}
-              placeholder='Summary about yourself'
+              placeholder={t('Enter your professional summary...')}
             />
           </Field>
         </FieldGroup>

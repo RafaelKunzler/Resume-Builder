@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { useFormContext, useWatch } from "react-hook-form"
 
@@ -10,6 +11,8 @@ import { Button } from './ui/button'
 import Infocard from './Infocard'
 
 const Education = () => {
+  const { t } = useTranslation()
+
   const {
     register,
     setValue,
@@ -81,7 +84,7 @@ const Education = () => {
 
   return (
     <div className='flex flex-col gap-6 px-7 py-2 mb-8'>
-      <h1 className='font-bold text-lg'>Education</h1>
+      <h1 className='font-bold text-lg'>{t('Education')}</h1>
       <div className='flex flex-col gap-4'>
 
         {educations?.map((edu, index) => (
@@ -103,25 +106,25 @@ const Education = () => {
 
         <FieldGroup>
           <Field>
-            <FieldLabel htmlFor="educationForm.institution">Institution: </FieldLabel>
+            <FieldLabel htmlFor="educationForm.institution">{t('Institution')}: </FieldLabel>
             <Input
               {...register("educationForm.institution")}
               type="text"
-              placeholder="Enter Institution name..."
+              placeholder={t('Enter Institution name...')}
             />
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="educationForm.qualification">Qualification/Degree: </FieldLabel>
+            <FieldLabel htmlFor="educationForm.qualification">{t('Qualification/Degree')}: </FieldLabel>
             <Input
               {...register("educationForm.qualification")}
               type="text"
-              placeholder="e.g., Bachelor of Science in Computer Science..."
+              placeholder={t('e.g., Bachelor of Science in Computer Science...')}
             />
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="educationForm.location">Location:</FieldLabel>
+            <FieldLabel htmlFor="educationForm.location">{t('Location')}:</FieldLabel>
             <Input
               {...register("educationForm.location")}
               type="text"
@@ -131,22 +134,22 @@ const Education = () => {
 
           <FieldGroup className="grid max-w-sm grid-cols-2">
             <Field >
-              <FieldLabel htmlFor="educationForm.start">Start Year</FieldLabel>
+              <FieldLabel htmlFor="educationForm.start">{t('Start Year')}</FieldLabel>
               <Input
                 {...register("educationForm.start")}
                 type="text"
-                placeholder="MM/YYYY"
+                placeholder={t('MM/YYYY')}
               />
               {errors.education?.start && <div className="text-red-500 text-xs">{errors.education?.start.message}</div>}
             </Field>
 
             {!checked ?
               <Field>
-                <FieldLabel htmlFor="educationForm.end">End Year</FieldLabel>
+                <FieldLabel htmlFor="educationForm.end">{t('End Year')}</FieldLabel>
                 <Input
                   {...register("educationForm.end")}
                   type="text"
-                  placeholder="MM/YYYY"
+                  placeholder={t('MM/YYYY')}
                 />
                 {errors.education?.end && <div className="text-red-500 text-xs">{errors.education?.end.message}</div>}
               </Field> : ""}
@@ -155,16 +158,25 @@ const Education = () => {
           <FieldGroup>
             <Field orientation='horizontal'>
               <Checkbox onCheckedChange={handleCheckedChange} className="border-slate-400" />
-              <FieldLabel>Currently studying here</FieldLabel>
+              <FieldLabel>{t('Currently studying here')}</FieldLabel>
             </Field>
           </FieldGroup>
 
+          <Field>
+            <FieldLabel htmlFor="educationForm.gpa">{t('GPA (optional):')}</FieldLabel>
+            <Input
+              {...register("educationForm.gpa")}
+              type="text"
+              placeholder={t('e.g., 3.8/4.0')}
+            />
+          </Field>
+
           <FieldGroup>
             <Field>
-              <FieldLabel htmlFor="educationForm.takeaways">Key Takeaways & Achievements</FieldLabel>
+              <FieldLabel htmlFor="educationForm.takeaways">{t('Key Takeaways & Achievements')}</FieldLabel>
               <Textarea
                 {...register("educationForm.takeaways")}
-                placeholder="Enter key courses, projects, honors, or achievements..."
+                placeholder={t('Enter key courses, projects, honors, or achievements...')}
               />
             </Field>
           </FieldGroup>
@@ -173,7 +185,7 @@ const Education = () => {
             type="button"
             onClick={handleAddEducation}
           >
-            Add Education
+            {t('Add Education')}
           </Button>
         </FieldGroup>
       </div>

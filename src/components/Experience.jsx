@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { useFormContext, useWatch } from "react-hook-form"
 
@@ -12,6 +13,8 @@ import Infocard from './Infocard'
 
 
 const Experience = () => {
+  const { t } = useTranslation()
+
   const {
     register,
     setValue,
@@ -85,7 +88,7 @@ const Experience = () => {
 
   return (
     <div className='flex flex-col gap-6 px-7 py-2 mb-8'>
-      <h1 className='font-bold text-lg'>Profissional Experience</h1>
+      <h1 className='font-bold text-lg'>{t('Profissional Experience')}</h1>
       <div className='flex flex-col gap-4'>       
 
         {experiences?.map((exp, index) => (
@@ -107,50 +110,50 @@ const Experience = () => {
 
         <FieldGroup>
           <Field>
-            <FieldLabel htmlFor="experienceForm.company">Company: </FieldLabel>
+            <FieldLabel htmlFor="experienceForm.company">{t('Company')}: </FieldLabel>
             <Input
               {...register("experienceForm.company")}
               type="text"
-              placeholder="Enter Company..."
+              placeholder={t('Enter Company...')}
             />
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="experienceForm.role">Job Title: </FieldLabel>
+            <FieldLabel htmlFor="experienceForm.role">{t('Job Title')}: </FieldLabel>
             <Input
               {...register("experienceForm.role")}
               type="text"
-              placeholder="Enter Role / Job title..."
+              placeholder={t('Enter Role / Job title...')}
             />
           </Field>
 
           <Field>
-            <FieldLabel htmlFor="experienceForm.location">Location:</FieldLabel>
+            <FieldLabel htmlFor="experienceForm.location">{t('Location:')}</FieldLabel>
             <Input
               {...register("experienceForm.location")}
               type="text"
-              placeholder="Enter Location (optional)..."
+              placeholder={t('Enter Location (optional)...')}
             />
           </Field>
 
           <FieldGroup className="grid max-w-sm grid-cols-2">
             <Field >
-              <FieldLabel htmlFor="experienceForm.start">Start Year</FieldLabel>
+              <FieldLabel htmlFor="experienceForm.start">{t('Start Year')}</FieldLabel>
               <Input
                 {...register("experienceForm.start")}
                 type="text"
-                placeholder="MM/YYYY"
+                placeholder={t('MM/YYYY')}
               />
               {errors.experience?.start && <div className="text-red-500 text-xs">{errors.experience?.start.message}</div>}
             </Field>
 
             {!checked ?
               <Field>
-                <FieldLabel htmlFor="experienceForm.end">End Year</FieldLabel>
+                <FieldLabel htmlFor="experienceForm.end">{t('End Year')}</FieldLabel>
                 <Input
                   {...register("experienceForm.end")}
                   type="text"
-                  placeholder="MM/YYYY"
+                  placeholder={t('MM/YYYY')}
                 />
                 {errors.experience?.end && <div className="text-red-500 text-xs">{errors.experience?.end.message}</div>}
 
@@ -160,16 +163,16 @@ const Experience = () => {
           <FieldGroup>
             <Field orientation='horizontal'>
               <Checkbox onCheckedChange={handleCheckedChange} className="border-slate-400" />
-              <FieldLabel>Currently working here</FieldLabel>
+              <FieldLabel>{t('Currently working here')}</FieldLabel>
             </Field>
           </FieldGroup>
 
           <FieldGroup>
             <Field>
-              <FieldLabel htmlFor="experienceForm.description">Key responsabilities and achievementes</FieldLabel>
+              <FieldLabel htmlFor="experienceForm.description">{t('Key responsabilities and achievementes')}</FieldLabel>
               <Textarea
                 {...register("experienceForm.description")}
-                placeholder="Enter key responsibilities and achievements..."
+                placeholder={t('Enter key responsibilities and achievements...')}
               />
             </Field>
           </FieldGroup>
@@ -178,7 +181,7 @@ const Experience = () => {
             type="button"
             onClick={handleAddExperience}
           >
-            Add Experience
+            {t('Add Experience')}
           </Button>
         </FieldGroup>
       </div>

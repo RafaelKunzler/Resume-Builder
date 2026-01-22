@@ -1,7 +1,9 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useWatch, useFormContext } from "react-hook-form"
 
 const Resume = () => {
+  const { t } = useTranslation()
   const { control } = useFormContext()
 
   const personal = useWatch({
@@ -46,7 +48,7 @@ const Resume = () => {
       {/* Summary Section */}
       {personal?.summary && (
         <div className="mb-8">
-          <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">Professional Summary</h2>
+          <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">{t('Professional Summary')}</h2>
           <p className="text-gray-700 leading-relaxed">{personal.summary}</p>
         </div>
       )}
@@ -54,7 +56,7 @@ const Resume = () => {
       {/* Experience Section */}
       {experience && experience.length > 0 && (
         <div className="mb-8">
-          <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">Professional Experience</h2>
+          <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">{t('Profissional Experience')}</h2>
           <div className="space-y-6">
             {experience.map((exp, index) => (
               <div key={index} className="border-l-4 border-blue-500 pl-4">
@@ -76,7 +78,7 @@ const Resume = () => {
       {/* Education Section */}
       {education && education.length > 0 && (
         <div className="mb-8">
-          <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">Education</h2>
+          <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">{t('Education')}</h2>
           <div className="space-y-6">
             {education.map((edu, index) => (
               <div key={index} className="border-l-4 border-green-500 pl-4">
@@ -99,7 +101,7 @@ const Resume = () => {
       {/* Projects Section */}
       {projects && projects.length > 0 && (
         <div className="mb-8">
-          <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">Portfolio Projects</h2>
+          <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">{t('Portfolio Projects')}</h2>
           <div className="space-y-6">
             {projects.map((project, index) => (
               <div key={index} className="border-l-4 border-purple-500 pl-4">
@@ -125,7 +127,7 @@ const Resume = () => {
       {/* Skills Section */}
       {skills && skills.length > 0 && (
         <div className="mb-8">
-          <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">Skills</h2>
+          <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">{t('Skills')}</h2>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill, index) => (
               <span key={index} className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">

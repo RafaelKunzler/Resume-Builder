@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { useFormContext, useWatch } from "react-hook-form"
 
@@ -9,6 +10,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ChevronUp, ChevronDown, Trash2 } from 'lucide-react'
 
 const Skills = () => {
+  const { t } = useTranslation()
+
   const {
     register,
     setValue,
@@ -63,7 +66,7 @@ const Skills = () => {
 
   return (
     <div className='flex flex-col gap-6 px-7 py-2 mb-8'>
-      <h1 className='font-bold text-lg'>Skills</h1>
+      <h1 className='font-bold text-lg'>{t('Skills')}</h1>
       <div className='flex flex-col gap-4'>
 
         {skills?.map((skill, index) => (
@@ -91,21 +94,21 @@ const Skills = () => {
 
         <FieldGroup>
           <Field>
-            <FieldLabel htmlFor="newSkill">Add Skill: </FieldLabel>
+            <FieldLabel htmlFor="newSkill">{t('Add Skill')}: </FieldLabel>
             <div className="flex gap-2">
               <Input
                 value={newSkill}
                 onChange={(e) => setNewSkill(e.target.value)}
                 onKeyPress={handleKeyPress}
                 type="text"
-                placeholder="Enter a skill..."
+                placeholder={t('Enter a skill...')}
               />
               <Button
                 type="button"
                 onClick={handleAddSkill}
                 disabled={!newSkill.trim()}
               >
-                Add
+                {t('Add')}
               </Button>
             </div>
           </Field>

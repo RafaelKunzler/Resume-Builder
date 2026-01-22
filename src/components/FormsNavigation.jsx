@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import {
   Card,
@@ -20,14 +21,16 @@ import Projects from './Projects'
 import Skills from './Skills'
 
 const FormsNavigation = () => {
+  const { t } = useTranslation()
+
   return (
     <Tabs defaultValue="personal">
       <TabsList variant="line" className="flex w-full">
-        <TabsTrigger value="personal">Personal</TabsTrigger>
-        <TabsTrigger value="experience">Experience</TabsTrigger>
-        <TabsTrigger value="education">Education</TabsTrigger>
-        <TabsTrigger value="projects">Projects</TabsTrigger>
-        <TabsTrigger value="skills">Skills</TabsTrigger>
+        <TabsTrigger value="personal">{t('Personal')}</TabsTrigger>
+        <TabsTrigger value="experience">{t('Experience')}</TabsTrigger>
+        <TabsTrigger value="education">{t('Education')}</TabsTrigger>
+        <TabsTrigger value="projects">{t('Projects')}</TabsTrigger>
+        <TabsTrigger value="skills">{t('Skills')}</TabsTrigger>
       </TabsList>
 
       <TabsContent value="personal">
