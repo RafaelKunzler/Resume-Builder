@@ -80,6 +80,15 @@ const Personal = () => {
           </Field>
 
           <Field>
+            <FieldLabel htmlFor="personal.portfolio">{t('Portfolio')}:</FieldLabel>
+            <Input
+              {...register("personal.portfolio")}
+              type="text"
+              placeholder={t('Portfolio')}
+            />
+          </Field>
+
+          <Field>
             <FieldLabel htmlFor="personal.summary">{t('Professional Summary')}:</FieldLabel>
             <Textarea
               {...register("personal.summary")}

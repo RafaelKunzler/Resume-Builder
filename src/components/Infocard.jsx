@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import {
   Card,
@@ -13,6 +14,13 @@ import {
 import { ChevronUp, ChevronDown, Trash2} from 'lucide-react';
 
 const Infocard = (props) => {
+  const { t } = useTranslation()
+
+  // Translate end dates for display
+  const displayEnd = props.end === 'Currently' ? t('Currently') : 
+                    props.end === 'Present' ? t('Present') : 
+                    props.end
+
   return (
     <Card>
       <div className='flex'>
@@ -22,7 +30,7 @@ const Infocard = (props) => {
           </CardHeader>
           <CardContent>
             <p>{props.company} - {props.location}</p>
-            <p>{props.start} - {props.end}</p>
+            <p>{props.start} - {displayEnd}</p>
           </CardContent>
         </div>
 

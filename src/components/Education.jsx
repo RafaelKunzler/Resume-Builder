@@ -57,7 +57,16 @@ const Education = () => {
       shouldDirty: true,
     })
 
-    resetField("educationForm")
+    // Reset all form fields individually
+    resetField("educationForm.institution")
+    resetField("educationForm.qualification")
+    resetField("educationForm.location")
+    resetField("educationForm.start")
+    resetField("educationForm.end")
+    resetField("educationForm.takeaways")
+
+    // Also reset the checkbox state
+    setChecked(false)
   }
 
   const handleDeleteEducation = (index) => {

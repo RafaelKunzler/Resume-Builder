@@ -37,6 +37,7 @@ i18n
           "Location": "Location",
           "LinkedIn": "LinkedIn",
           "GitHub": "GitHub",
+          "Portfolio": "Portfolio",
           "Professional Summary": "Professional Summary",
           "Enter your professional summary...": "Enter your professional summary...",
 
@@ -121,6 +122,7 @@ i18n
           "Location": "Localização",
           "LinkedIn": "LinkedIn",
           "GitHub": "GitHub",
+          "Portfolio": "Portfólio",
           "Professional Summary": "Resumo Profissional",
           "Enter your professional summary...": "Digite seu resumo profissional...",
 

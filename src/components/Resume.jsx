@@ -45,6 +45,7 @@ const Resume = () => {
           {personal?.location && <span>📍 {personal.location}</span>}
           {personal?.linkedin && <span className='flex gap-2'><Linkedin size={20}/> {personal.linkedin}</span>}
           {personal?.github && <span className='flex gap-2'><Github size={20}/> {personal.github}</span>}
+          {personal?.portfolio && <span>{t('Portfolio') + (": ") + personal.portfolio}</span>}
         </div>
       </div>
 

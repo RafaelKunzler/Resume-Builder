@@ -59,7 +59,13 @@ const Experience = () => {
       shouldDirty: true,
     })
 
-    resetField("experienceForm")
+    // Reset all form fields individually
+    resetField("experienceForm.company")
+    resetField("experienceForm.role")
+    resetField("experienceForm.location")
+    resetField("experienceForm.start")
+    resetField("experienceForm.end")
+    resetField("experienceForm.description")
 
   }
 
