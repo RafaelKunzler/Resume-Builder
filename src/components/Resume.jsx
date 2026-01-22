@@ -2,6 +2,9 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useWatch, useFormContext } from "react-hook-form"
 
+import { Linkedin } from 'lucide-react';
+import { Github } from 'lucide-react';
+
 const Resume = () => {
   const { t } = useTranslation()
   const { control } = useFormContext()
@@ -40,8 +43,8 @@ const Resume = () => {
           {personal?.email && <span>📧 {personal.email}</span>}
           {personal?.phone && <span>📱 {personal.phone}</span>}
           {personal?.location && <span>📍 {personal.location}</span>}
-          {personal?.linkedin && <span>💼 {personal.linkedin}</span>}
-          {personal?.github && <span>💻 {personal.github}</span>}
+          {personal?.linkedin && <span className='flex gap-2'><Linkedin size={20}/> {personal.linkedin}</span>}
+          {personal?.github && <span className='flex gap-2'><Github size={20}/> {personal.github}</span>}
         </div>
       </div>
 
@@ -55,7 +58,7 @@ const Resume = () => {
 
       {/* Experience Section */}
       {experience && experience.length > 0 && (
-        <div className="mb-8">
+        <div className="mb-8 ">
           <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">{t('Profissional Experience')}</h2>
           <div className="space-y-6">
             {experience.map((exp, index) => (
@@ -63,7 +66,7 @@ const Resume = () => {
                 <h3 className="text-xl font-semibold">{exp.role}</h3>
                 <p className="text-lg text-gray-700 mb-1">{exp.company}</p>
                 {exp.location && <p className="text-sm text-gray-600 mb-2">{exp.location}</p>}
-                <p className="text-sm text-gray-600 mb-3">{exp.start} - {exp.end}</p>
+                <p className="text-sm text-gray-600 mb-3">{exp.start} - {exp.end === 'Currently' ? t('Currently') : exp.end}</p>
                 {exp.description && (
                   <div className="text-gray-700">
                     <p className="whitespace-pre-line">{exp.description}</p>
@@ -85,7 +88,7 @@ const Resume = () => {
                 <h3 className="text-xl font-semibold">{edu.qualification}</h3>
                 <p className="text-lg text-gray-700 mb-1">{edu.institution}</p>
                 {edu.location && <p className="text-sm text-gray-600 mb-2">{edu.location}</p>}
-                <p className="text-sm text-gray-600 mb-3">{edu.start} - {edu.end}</p>
+                <p className="text-sm text-gray-600 mb-3">{edu.start} - {edu.end === 'Present' ? t('Present') : edu.end}</p>
                 {edu.gpa && <p className="text-sm text-gray-600 mb-2">GPA: {edu.gpa}</p>}
                 {edu.takeaways && (
                   <div className="text-gray-700">

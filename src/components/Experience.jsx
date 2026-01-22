@@ -8,6 +8,7 @@ import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from './ui/button'
+import { handleDateInputChange } from '@/lib/utils'
 import Infocard from './Infocard'
 
 
@@ -143,6 +144,7 @@ const Experience = () => {
                 {...register("experienceForm.start")}
                 type="text"
                 placeholder={t('MM/YYYY')}
+                onChange={(e) => handleDateInputChange(e, setValue, "experienceForm.start")}
               />
               {errors.experience?.start && <div className="text-red-500 text-xs">{errors.experience?.start.message}</div>}
             </Field>
@@ -154,6 +156,7 @@ const Experience = () => {
                   {...register("experienceForm.end")}
                   type="text"
                   placeholder={t('MM/YYYY')}
+                  onChange={(e) => handleDateInputChange(e, setValue, "experienceForm.end")}
                 />
                 {errors.experience?.end && <div className="text-red-500 text-xs">{errors.experience?.end.message}</div>}
 

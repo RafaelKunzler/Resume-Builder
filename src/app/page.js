@@ -1,6 +1,5 @@
 "use client"
 
-import Personal from "@/components/Personal";
 import Resume from "@/components/Resume";
 import { ResumeProvider } from "@/components/ResumeProvider";
 import FormsNavigation from "@/components/FormsNavigation";

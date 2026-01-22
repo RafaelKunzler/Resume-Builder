@@ -8,6 +8,7 @@ import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from './ui/button'
+import { handleDateInputChange } from '@/lib/utils'
 import Infocard from './Infocard'
 
 const Education = () => {
@@ -128,7 +129,7 @@ const Education = () => {
             <Input
               {...register("educationForm.location")}
               type="text"
-              placeholder="City, State/Country (optional)..."
+              placeholder={t('City, State/Country (optional)...')}
             />
           </Field>
 
@@ -139,6 +140,7 @@ const Education = () => {
                 {...register("educationForm.start")}
                 type="text"
                 placeholder={t('MM/YYYY')}
+                onChange={(e) => handleDateInputChange(e, setValue, "educationForm.start")}
               />
               {errors.education?.start && <div className="text-red-500 text-xs">{errors.education?.start.message}</div>}
             </Field>
@@ -150,6 +152,7 @@ const Education = () => {
                   {...register("educationForm.end")}
                   type="text"
                   placeholder={t('MM/YYYY')}
+                  onChange={(e) => handleDateInputChange(e, setValue, "educationForm.end")}
                 />
                 {errors.education?.end && <div className="text-red-500 text-xs">{errors.education?.end.message}</div>}
               </Field> : ""}
@@ -161,15 +164,6 @@ const Education = () => {
               <FieldLabel>{t('Currently studying here')}</FieldLabel>
             </Field>
           </FieldGroup>
-
-          <Field>
-            <FieldLabel htmlFor="educationForm.gpa">{t('GPA (optional):')}</FieldLabel>
-            <Input
-              {...register("educationForm.gpa")}
-              type="text"
-              placeholder={t('e.g., 3.8/4.0')}
-            />
-          </Field>
 
           <FieldGroup>
             <Field>

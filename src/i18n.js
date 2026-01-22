@@ -52,6 +52,7 @@ i18n
           "End Year": "End Year",
           "MM/YYYY": "MM/YYYY",
           "Currently working here": "Currently working here",
+          "Currently": "Currently",
           "Key responsabilities and achievementes": "Key responsibilities and achievements",
           "Enter key responsibilities and achievements...": "Enter key responsibilities and achievements...",
           "Add Experience": "Add Experience",
@@ -66,6 +67,7 @@ i18n
           "Key Takeaways & Achievements": "Key Takeaways & Achievements",
           "Enter key courses, projects, honors, or achievements...": "Enter key courses, projects, honors, or achievements...",
           "Add Education": "Add Education",
+          "City, State/Country (optional)...": "City, State/Country (optional)...",
 
           // Projects Section
           "Portfolio Projects": "Portfolio Projects",
@@ -93,6 +95,7 @@ i18n
           "E-mail": "Email",
           "Telefone": "Phone",
           "Localização": "Location",
+          "Present": "Present",
 
           // Language Switcher
           "Language": "Language",
@@ -133,6 +136,7 @@ i18n
           "End Year": "Ano de Fim",
           "MM/YYYY": "MM/AAAA",
           "Currently working here": "Trabalhando aqui atualmente",
+          "Currently": "Atualmente",
           "Key responsabilities and achievementes": "Principais responsabilidades e conquistas",
           "Enter key responsibilities and achievements...": "Digite as principais responsabilidades e conquistas...",
           "Add Experience": "Adicionar Experiência",
@@ -147,6 +151,8 @@ i18n
           "Key Takeaways & Achievements": "Principais aprendizados e conquistas",
           "Enter key courses, projects, honors, or achievements...": "Digite cursos importantes, projetos, honras ou conquistas...",
           "Add Education": "Adicionar Educação",
+          "Currently studying here": "Estudando aqui atualmente",
+          "City, State/Country (optional)...": "Cidade, Estado/País (opcional)...",
 
           // Projects Section
           "Portfolio Projects": "Projetos de Portfólio",
@@ -174,6 +180,7 @@ i18n
           "E-mail": "E-mail",
           "Telefone": "Telefone",
           "Localização": "Localização",
+          "Present": "Cursando",
 
           // Language Switcher
           "Language": "Idioma",
