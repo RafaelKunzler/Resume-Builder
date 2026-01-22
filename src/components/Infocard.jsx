@@ -27,9 +27,21 @@ const Infocard = (props) => {
         </div>
 
         <div className='flex flex-col gap-2'>
-          <ChevronUp size={18} />
-          <ChevronDown size={18}  />
-          <Trash2 size={18} className='text-red-400' />
+          <ChevronUp 
+            size={18} 
+            className={`${props.canMoveUp ? 'cursor-pointer hover:text-blue-600' : 'text-gray-300 '}`}
+            onClick={props.canMoveUp ? props.onMoveUp : undefined}
+          />
+          <ChevronDown 
+            size={18} 
+            className={`${props.canMoveDown ? 'cursor-pointer hover:text-blue-600' : 'text-gray-300'}`}
+            onClick={props.canMoveDown ? props.onMoveDown : undefined}
+          />
+          <Trash2 
+            size={18} 
+            className='text-red-400 cursor-pointer hover:text-red-600' 
+            onClick={props.onDelete}
+          />
         </div>
       </div>
     </Card>

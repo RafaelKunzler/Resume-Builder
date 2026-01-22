@@ -59,6 +59,29 @@ const Experience = () => {
 
   }
 
+  const handleDeleteExperience = (index) => {
+    const currentList = getValues("experience") || []
+    const newList = currentList.filter((_, i) => i !== index)
+    setValue("experience", newList, {
+      shouldDirty: true,
+    })
+  }
+
+  const handleMoveExperience = (index, direction) => {
+    const currentList = getValues("experience") || []
+    const newList = [...currentList]
+    
+    if (direction === 'up' && index > 0) {
+      [newList[index], newList[index - 1]] = [newList[index - 1], newList[index]]
+    } else if (direction === 'down' && index < newList.length - 1) {
+      [newList[index], newList[index + 1]] = [newList[index + 1], newList[index]]
+    }
+    
+    setValue("experience", newList, {
+      shouldDirty: true,
+    })
+  }
+
 
   return (
     <div className='flex flex-col gap-6 px-7 py-2 mb-8'>
@@ -73,6 +96,11 @@ const Experience = () => {
               location={exp.location}
               start={exp.start}
               end={exp.end}
+              onDelete={() => handleDeleteExperience(index)}
+              onMoveUp={() => handleMoveExperience(index, 'up')}
+              onMoveDown={() => handleMoveExperience(index, 'down')}
+              canMoveUp={index > 0}
+              canMoveDown={index < experiences.length - 1}
              />
           </div>
         ))}
