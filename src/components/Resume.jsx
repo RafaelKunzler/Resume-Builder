@@ -1,9 +1,10 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useWatch, useFormContext } from "react-hook-form"
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
-import { Linkedin } from 'lucide-react';
-import { Github } from 'lucide-react';
+import ResumePdf from "@/components/resumePdf";
+
 
 const Resume = () => {
   const { t } = useTranslation()
@@ -36,16 +37,22 @@ const Resume = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-8 bg-white text-gray-900">
+     
+      
       {/* Header Section */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-2">{personal?.name || "Seu Nome"}</h1>
-        <div className="flex flex-wrap gap-4 text-sm text-gray-600">
-          {personal?.email && <span>📧 {personal.email}</span>}
-          {personal?.phone && <span>📱 {personal.phone}</span>}
-          {personal?.location && <span>📍 {personal.location}</span>}
-          {personal?.linkedin && <span className='flex gap-2'><Linkedin size={20}/> {personal.linkedin}</span>}
-          {personal?.github && <span className='flex gap-2'><Github size={20}/> {personal.github}</span>}
-          {personal?.portfolio && <span>{t('Portfolio') + (": ") + personal.portfolio}</span>}
+        <h1 className="text-4xl font-bold mb-6">{personal?.name || "Seu Nome"}</h1>
+        <div className="flex flex-col gap-4 text-sm text-gray-600">
+          <div className="flex gap-4">
+            {personal?.email && <span>{t('Email')}: {personal.email}</span>}
+            {personal?.phone && <span>{t('Phone')}: {personal.phone}</span>}
+            {personal?.location && <span>{t('Location')}: {personal.location}</span>}
+          </div>
+          <div className="flex gap-4">
+            {personal?.linkedin && <a href={personal.linkedin} target="_blank" className='text-blue-600 hover:underline'>{t('LinkedIn')}</a>}
+            {personal?.github && <a href={personal.github} target="_blank" className='text-blue-600 hover:underline'>{t('GitHub')}</a>}
+            {personal?.portfolio && <a href={personal.portfolio} target="_blank" className='text-blue-600 hover:underline'>{t('Portfolio')}</a>}
+          </div>
         </div>
       </div>
 
@@ -113,8 +120,8 @@ const Resume = () => {
                 <p className="text-lg text-gray-700 mb-2">{project.technologies}</p>
                 {project.description && <p className="text-gray-700 mb-3">{project.description}</p>}
                 <div className="flex flex-wrap gap-4 text-sm text-blue-600 mb-3">
-                  {project.url && <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:underline">🔗 Live Demo</a>}
-                  {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="hover:underline">💻 Source Code</a>}
+                  {project.url && <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:underline">{t('Live Demo')}</a>}
+                  {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="hover:underline">{t('Source Code')}</a>}
                 </div>
                 {project.features && (
                   <div className="text-gray-700">
@@ -141,6 +148,20 @@ const Resume = () => {
           </div>
         </div>
       )}
+
+      <PDFDownloadLink
+        document={<ResumePdf 
+          personal={personal} 
+          experience={experience || []} 
+          education={education} 
+          projects={projects} 
+          skills={skills}
+          t={t} />}
+        fileName="resume.pdf"
+      >
+        {({ loading }) => (loading ? "Loading document..." : "Download PDF")}
+      </PDFDownloadLink>
+
     </div>
   )
 }

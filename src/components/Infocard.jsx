@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-import { ChevronUp, ChevronDown, Trash2} from 'lucide-react';
+import { ChevronUp, ChevronDown, Trash2, Edit} from 'lucide-react';
 
 const Infocard = (props) => {
   const { t } = useTranslation()
@@ -44,6 +44,11 @@ const Infocard = (props) => {
             size={18} 
             className={`${props.canMoveDown ? 'cursor-pointer hover:text-blue-600' : 'text-gray-300'}`}
             onClick={props.canMoveDown ? props.onMoveDown : undefined}
+          />
+          <Edit 
+            size={18} 
+            className='text-blue-400 cursor-pointer hover:text-blue-600' 
+            onClick={props.onEdit}
           />
           <Trash2 
             size={18} 

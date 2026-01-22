@@ -57,6 +57,9 @@ i18n
           "Key responsabilities and achievementes": "Key responsibilities and achievements",
           "Enter key responsibilities and achievements...": "Enter key responsibilities and achievements...",
           "Add Experience": "Add Experience",
+          "Edit Experience": "Edit Experience",
+          "Save": "Save",
+          "Cancel": "Cancel",
 
           // Education Section
           "Institution": "Institution",
@@ -68,6 +71,7 @@ i18n
           "Key Takeaways & Achievements": "Key Takeaways & Achievements",
           "Enter key courses, projects, honors, or achievements...": "Enter key courses, projects, honors, or achievements...",
           "Add Education": "Add Education",
+          "Edit Education": "Edit Education",
           "City, State/Country (optional)...": "City, State/Country (optional)...",
 
           // Projects Section
@@ -84,7 +88,10 @@ i18n
           "https://github.com/username/repo": "https://github.com/username/repo",
           "Key Features & Achievements": "Key Features & Achievements",
           "List key features, challenges overcome, or notable achievements...": "List key features, challenges overcome, or notable achievements...",
+          "Live Demo": "Live Demo",
+          "Source Code": "Source Code",
           "Add Project": "Add Project",
+          "Edit Project": "Edit Project",
 
           // Skills Section
           "Add Skill": "Add Skill",
@@ -142,6 +149,9 @@ i18n
           "Key responsabilities and achievementes": "Principais responsabilidades e conquistas",
           "Enter key responsibilities and achievements...": "Digite as principais responsabilidades e conquistas...",
           "Add Experience": "Adicionar Experiência",
+          "Edit Experience": "Editar Experiência",
+          "Save": "Salvar",
+          "Cancel": "Cancelar",
 
           // Education Section
           "Institution": "Instituição",
@@ -153,6 +163,7 @@ i18n
           "Key Takeaways & Achievements": "Principais aprendizados e conquistas",
           "Enter key courses, projects, honors, or achievements...": "Digite cursos importantes, projetos, honras ou conquistas...",
           "Add Education": "Adicionar Educação",
+          "Edit Education": "Editar Educação",
           "Currently studying here": "Estudando aqui atualmente",
           "City, State/Country (optional)...": "Cidade, Estado/País (opcional)...",
 
@@ -170,7 +181,10 @@ i18n
           "https://github.com/usuario/repo": "https://github.com/usuario/repo",
           "Key Features & Achievements": "Funcionalidades principais e conquistas",
           "List key features, challenges overcome, or notable achievements...": "Liste funcionalidades principais, desafios superados ou conquistas notáveis...",
+          "Live Demo": "Demonstração",
+          "Source Code": "Código Fonte",
           "Add Project": "Adicionar Projeto",
+          "Edit Project": "Editar Projeto",
 
           // Skills Section
           "Add Skill": "Adicionar Habilidade",

@@ -1,6 +1,7 @@
 "use client"
 
 import Resume from "@/components/Resume";
+import ResumePdf from "@/components/resumePdf";
 import { ResumeProvider } from "@/components/ResumeProvider";
 import FormsNavigation from "@/components/FormsNavigation";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
@@ -18,7 +19,7 @@ export default function Home() {
           <FormsNavigation />
         </div>
 
-        <div className="w-8/12">
+        <div className="w-8/12">          
           <Resume />
         </div>
       </div>

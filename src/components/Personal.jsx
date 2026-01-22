@@ -27,6 +27,7 @@ const Personal = () => {
               {...register("personal.name")}
               type="text"
               placeholder={t('Full Name')}
+              className={errors.personal?.name ? "border-red-500 focus-visible:border-red-500" : ""}
             />
             {errors.personal?.name && <div className="text-red-500 text-xs">{errors.personal?.name.message}</div>}
           </Field>
@@ -37,6 +38,7 @@ const Personal = () => {
               {...register("personal.email")}
               type="email"
               placeholder={t('Email')}
+              className={errors.personal?.email ? "border-red-500 focus-visible:border-red-500" : ""}
             />
             {errors.personal?.email && <div className="text-red-500 text-xs">{errors.personal?.email.message}</div>}
           </Field>
@@ -47,6 +49,7 @@ const Personal = () => {
               {...register("personal.phone")}
               type="tel"
               placeholder={t('Phone')}
+              className={errors.personal?.phone ? "border-red-500 focus-visible:border-red-500" : ""}
             />
             {errors.personal?.phone && <div className="text-red-500 text-xs">{errors.personal?.phone.message}</div>}
           </Field>
@@ -57,6 +60,7 @@ const Personal = () => {
               {...register("personal.location")}
               type="text"
               placeholder={t('Location')}
+              className={errors.personal?.location ? "border-red-500 focus-visible:border-red-500" : ""}
             />
             {errors.personal?.location && <div className="text-red-500 text-xs">{errors.personal?.location.message}</div>}
           </Field>
@@ -67,7 +71,9 @@ const Personal = () => {
               {...register("personal.linkedin")}
               type="text"
               placeholder={t('LinkedIn')}
-            />
+              className={errors.personal?.linkedin ? "border-red-500 focus-visible:border-red-500" : ""}
+              />
+              {errors.personal?.linkedin && <div className="text-red-500 text-xs">{errors.personal?.linkedin.message}</div>}
           </Field>
 
           <Field>
@@ -76,7 +82,9 @@ const Personal = () => {
               {...register("personal.github")}
               type="text"
               placeholder={t('GitHub')}
+              className={errors.personal?.github ? "border-red-500 focus-visible:border-red-500" : ""}
             />
+            {errors.personal?.github && <div className="text-red-500 text-xs">{errors.personal?.github.message}</div>}
           </Field>
 
           <Field>
@@ -85,7 +93,9 @@ const Personal = () => {
               {...register("personal.portfolio")}
               type="text"
               placeholder={t('Portfolio')}
+              className={errors.personal?.portfolio ? "border-red-500 focus-visible:border-red-500" : ""}
             />
+            {errors.personal?.portfolio && <div className="text-red-500 text-xs">{errors.personal?.portfolio.message}</div>}
           </Field>
 
           <Field>
@@ -93,7 +103,9 @@ const Personal = () => {
             <Textarea
               {...register("personal.summary")}
               placeholder={t('Enter your professional summary...')}
+              className={errors.personal?.summary ? "border-red-500 focus-visible:border-red-500" : ""}
             />
+            {errors.personal?.summary && <div className="text-red-500 text-xs">{errors.personal?.summary.message}</div>}
           </Field>
         </FieldGroup>
         
