@@ -63,7 +63,7 @@ const Resume = () => {
       {personal?.summary && (
         <div className="mb-8 ">
           <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">{t('About Me')}</h2>
-          <p className="text-gray-700 leading-snug border-l-4 border-slate-500 pl-4 whitespace-pre-line">{personal.summary}</p>
+          <p className="text-gray-700 leading-snug whitespace-pre-line border-l-4 border-slate-500 pl-4 ">{personal.summary}</p>
         </div>
       )}
 
@@ -80,7 +80,7 @@ const Resume = () => {
                 <p className="text-sm text-gray-600 mb-3">{exp.start} - {exp.end === 'Currently' ? t('Currently') : exp.end}</p>
                 {exp.description && (
                   <div className="text-gray-700">
-                    <p className="whitespace-pre-line">{exp.description}</p>
+                    <p className="leading-snug whitespace-pre-line">{exp.description}</p>
                   </div>
                 )}
               </div>
@@ -103,7 +103,7 @@ const Resume = () => {
                 {edu.gpa && <p className="text-sm text-gray-600 mb-2">GPA: {edu.gpa}</p>}
                 {edu.takeaways && (
                   <div className="text-gray-700">
-                    <p className="whitespace-pre-line">{edu.takeaways}</p>
+                    <p className="leading-snug whitespace-pre-line">{edu.takeaways}</p>
                   </div>
                 )}
               </div>
@@ -121,7 +121,7 @@ const Resume = () => {
               <div key={index} className="border-l-4 border-purple-500 pl-4">
                 <h3 className="text-xl font-semibold">{project.name}</h3>
                 <p className="text-sm text-gray-600 mb-2">{project.technologies}</p>
-                {project.description && <p className="text-gray-700 mb-3">{project.description}</p>}
+                {project.description && <p className="text-gray-700 mb-3 leading-snug whitespace-pre-line">{project.description}</p>}
                 <div className="flex flex-wrap gap-4 text-sm text-blue-600 mb-3">
                   {project.url && <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:underline">{t('Live Demo')}</a>}
                   {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="hover:underline">{t('Source Code')}</a>}
@@ -129,7 +129,7 @@ const Resume = () => {
                 {project.features && (
                   <div className="text-gray-700">
                     <p className="font-medium mb-1">Key Features:</p>
-                    <p className="whitespace-pre-line">{project.features}</p>
+                    <p className="leading-snug whitespace-pre-line">{project.features}</p>
                   </div>
                 )}
               </div>
