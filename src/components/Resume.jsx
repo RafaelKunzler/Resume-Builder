@@ -120,7 +120,7 @@ const Resume = () => {
             {projects.map((project, index) => (
               <div key={index} className="border-l-4 border-purple-500 pl-4">
                 <h3 className="text-xl font-semibold">{project.name}</h3>
-                <p className="text-lg text-gray-700 mb-2">{project.technologies}</p>
+                <p className="text-sm text-gray-600 mb-2">{project.technologies}</p>
                 {project.description && <p className="text-gray-700 mb-3">{project.description}</p>}
                 <div className="flex flex-wrap gap-4 text-sm text-blue-600 mb-3">
                   {project.url && <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:underline">{t('Live Demo')}</a>}

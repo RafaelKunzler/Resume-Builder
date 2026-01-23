@@ -34,6 +34,7 @@ const Projects = () => {
     setValue("projectForm.description", project.description || "")
     setValue("projectForm.technologies", project.technologies || "")
     setValue("projectForm.url", project.url || "")
+    setValue("projectForm.github", project.github || "")
     setValue("projectForm.features", project.features || "")
     setEditingIndex(index)
   }
@@ -43,22 +44,24 @@ const Projects = () => {
     if (editingIndex !== null) {
       const updatedProjects = [...projects]
       const formData = getValues("projectForm")
-      
+
       updatedProjects[editingIndex] = {
         name: formData.name,
         description: formData.description,
         technologies: formData.technologies,
         url: formData.url,
+        github: formData.github,
         features: formData.features
       }
-      
+
       setValue("projects", updatedProjects, { shouldDirty: true })
-      
+
       // Clear form and reset state
       resetField("projectForm.name")
       resetField("projectForm.description")
       resetField("projectForm.technologies")
       resetField("projectForm.url")
+      resetField("projectForm.github")
       resetField("projectForm.features")
       setEditingIndex(null)
     }
@@ -70,6 +73,7 @@ const Projects = () => {
     resetField("projectForm.description")
     resetField("projectForm.technologies")
     resetField("projectForm.url")
+    resetField("projectForm.github")
     resetField("projectForm.features")
     setEditingIndex(null)
   }
@@ -127,15 +131,15 @@ const Projects = () => {
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="font-semibold text-lg">{t('Edit Project')}</h3>
                   <div className="flex gap-2">
-                    <Button 
-                      type="button" 
+                    <Button
+                      type="button"
                       onClick={handleSaveEdit}
                       className="bg-green-600 hover:bg-green-700"
                     >
                       {t('Save')}
                     </Button>
-                    <Button 
-                      type="button" 
+                    <Button
+                      type="button"
                       onClick={handleCancelEdit}
                       variant="outline"
                     >
@@ -171,6 +175,15 @@ const Projects = () => {
                     />
                   </Field>
                   <Field>
+                    <FieldLabel htmlFor="projectForm.github">{t('GitHub Repository (optional):')}</FieldLabel>
+                    <Input
+                      {...register("projectForm.github")}
+                      type="url"
+                      placeholder={t('https://github.com/username/repo')}
+                      className={errors.projects?.github ? "border-red-500 focus-visible:border-red-500" : ""}
+                    />
+                  </Field>
+                  <Field>
                     <FieldLabel htmlFor="projectForm.url">{t('Project URL (optional):')}</FieldLabel>
                     <Input
                       {...register("projectForm.url")}
@@ -202,7 +215,7 @@ const Projects = () => {
                 onMoveDown={() => handleMoveProject(index, 'down')}
                 canMoveUp={index > 0}
                 canMoveDown={index < projects.length - 1}
-               />
+              />
             )}
           </div>
         ))}
