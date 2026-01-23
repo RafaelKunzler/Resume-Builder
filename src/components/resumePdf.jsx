@@ -311,7 +311,7 @@ const ResumePdf = ({ personal, experience, education, projects, skills, t }) => 
             {projects.map((project, index) => (
               <View key={index} style={styles.itemProjects}>
                 <Text style={styles.subtitle}>{project.name}</Text>
-                <Text>{project.technologies}</Text>
+                <Text style={styles.textMuted}>{project.technologies}</Text>
 
                 {project.description && (
                   <Text>{project.description}</Text>
