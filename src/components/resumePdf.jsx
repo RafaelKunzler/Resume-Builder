@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import {
   Document,
@@ -7,7 +9,6 @@ import {
   Link,
   StyleSheet,
   Image,
-  Font,
 } from "@react-pdf/renderer";
 
 const ResumePdf = ({ personal, experience, education, projects, skills, t }) => {  

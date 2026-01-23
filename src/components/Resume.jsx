@@ -1,9 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useWatch, useFormContext } from "react-hook-form"
-import { PDFDownloadLink } from "@react-pdf/renderer";
-
-import ResumePdf from "@/components/resumePdf";
 
 import dynamic from "next/dynamic"
 
