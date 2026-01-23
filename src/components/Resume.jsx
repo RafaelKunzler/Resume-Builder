@@ -4,6 +4,7 @@ import { useWatch, useFormContext } from "react-hook-form"
 import { PDFDownloadLink } from "@react-pdf/renderer";
 
 import ResumePdf from "@/components/resumePdf";
+import PDFDownload from './PDFDownload';
 
 
 const Resume = () => {
@@ -151,20 +152,15 @@ const Resume = () => {
           </div>
         </div>
       )}
-
-      <PDFDownloadLink
-        document={<ResumePdf
-          personal={personal}
-          experience={experience || []}
-          education={education}
-          projects={projects}
-          skills={skills}
-          t={t} />}
-        fileName="resume.pdf"
-      >
-        {({ loading }) => (loading ? "Loading document..." : "Download PDF")}
-      </PDFDownloadLink>
-
+      
+      <PDFDownload 
+        personal={personal}
+        experience={experience || []}
+        education={education || []}
+        projects={projects || []}
+        skills={skills || []}
+        t={t} 
+      />
     </div>
   )
 }
