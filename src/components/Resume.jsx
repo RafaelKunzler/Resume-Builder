@@ -4,12 +4,21 @@ import { useWatch, useFormContext } from "react-hook-form"
 import { PDFDownloadLink } from "@react-pdf/renderer";
 
 import ResumePdf from "@/components/resumePdf";
-import PDFDownload from './PDFDownload';
+
+import dynamic from "next/dynamic"
 
 
 const Resume = () => {
   const { t } = useTranslation()
   const { control } = useFormContext()
+
+  
+
+const PdfDownloadButton = dynamic(
+  () => import("./PDFDownload"),
+  { ssr: false }
+)
+
 
   const personal = useWatch({
     control,
@@ -152,8 +161,8 @@ const Resume = () => {
           </div>
         </div>
       )}
-      
-      <PDFDownload 
+
+      <PdfDownloadButton 
         personal={personal}
         experience={experience || []}
         education={education || []}
