@@ -32,13 +32,14 @@ i18n
           // Personal Section
           "Personal Information": "Personal Information",
           "Full Name": "Full Name",
+          "Area of Work": "Area of Work",
           "Email": "Email",
           "Phone": "Phone",
           "Location": "Location",
           "LinkedIn": "LinkedIn",
           "GitHub": "GitHub",
           "Portfolio": "Portfolio",
-          "Professional Summary": "Professional Summary",
+          "About Me": "About Me",
           "Enter your professional summary...": "Enter your professional summary...",
 
           // Experience Section
@@ -124,13 +125,14 @@ i18n
           // Personal Section
           "Personal Information": "Informações Pessoais",
           "Full Name": "Nome Completo",
+          "Area of Work": "Área de Atuação",
           "Email": "E-mail",
           "Phone": "Telefone",
           "Location": "Localização",
           "LinkedIn": "LinkedIn",
           "GitHub": "GitHub",
           "Portfolio": "Portfólio",
-          "Professional Summary": "Resumo Profissional",
+          "About Me": "Sobre Mim",
           "Enter your professional summary...": "Digite seu resumo profissional...",
 
           // Experience Section

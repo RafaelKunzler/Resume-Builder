@@ -6,94 +6,126 @@ import {
   View,
   Link,
   StyleSheet,
+  Image,
+  Font,
 } from "@react-pdf/renderer";
 
-const ResumePdf = ({ personal, experience, education, projects, skills, t }) => {
+const ResumePdf = ({ personal, experience, education, projects, skills, t }) => {  
 
   const styles = StyleSheet.create({
-  page: {
-    padding: 32,
-    fontSize: 11,
-    color: "#111827",
-  },
+    page: {
+      padding: 32,
+      fontSize: 11,
+      color: "#111827",
+    },
 
-  header: {
-    marginBottom: 20,
-  },
+    header: {
+      marginBottom: 20,
+    },
 
-  name: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 12,
-  },
+    name: {
+      fontSize: 24,
+      fontWeight: "bold",
+      marginBottom: 8,
+    },
 
-  row: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 10,
-    marginBottom: 6,
-  },
+    area: {
+      fontSize: 18,
+      marginBottom: 24,
+      color: '#6B7280',
+    },
 
-  section: {
-    marginBottom: 20,
-  },
+    row: {
+      flexDirection: "row",
+      flexWrap: "wrap",
+      marginBottom: 12,
+      gap: 12,
+    },
 
-  sectionTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    borderBottomWidth: 1,
-    borderBottomColor: "#D1D5DB",
-    paddingBottom: 4,
-    marginBottom: 10,
-  },
+    section: {
+      marginBottom: 20,
+    },
 
-  itemExperience: {
-    marginBottom: 12,
-    paddingLeft: 8,
-    borderLeftWidth: 3,
-    borderLeftColor: "#3B82F6",
-  },
+    sectionTitle: {
+      fontSize: 16,
+      fontWeight: "bold",
+      borderBottomWidth: 1,
+      borderBottomColor: "#D1D5DB",
+      paddingBottom: 4,
+      marginBottom: 10,
+    },
 
-  itemEducation: {
-    marginBottom: 12,
-    paddingLeft: 8,
-    borderLeftWidth: 3,
-    borderLeftColor: "#22C55E",
-  },
+    itemExperience: {
+      marginBottom: 12,
+      paddingLeft: 8,
+      borderLeftWidth: 3,
+      borderLeftColor: "#3B82F6",
+      gap: 8,
+    },
 
-  itemProjects: {
-    marginBottom: 12,
-    paddingLeft: 8,
-    borderLeftWidth: 3,
-    borderLeftColor: "#A855F7",
-  },
+    itemEducation: {
+      marginBottom: 12,
+      paddingLeft: 8,
+      borderLeftWidth: 3,
+      borderLeftColor: "#22C55E",
+      gap: 8,
+    },
 
-  subtitle: {
-    fontSize: 13,
-    fontWeight: "bold",
-  },
+    itemSummary: {
+      borderLeftWidth: 3,
+      borderLeftColor: "#64748B",
+      paddingLeft: 8,
+    },
 
-  textMuted: {
-    color: "#4B5563",
-    fontSize: 10,
-  },
+    itemProjects: {
+      marginBottom: 12,
+      paddingLeft: 8,
+      borderLeftWidth: 3,
+      borderLeftColor: "#A855F7",
+      gap: 8,
+    },
 
-  link: {
-    color: "#2563EB",
-    textDecoration: "underline",
-    fontSize: 10,
-  },
+    subtitle: {
+      fontSize: 13,
+      fontWeight: "bold",
+    },
 
-  badge: {
-    backgroundColor: "#E5E7EB",
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 10,
-    fontSize: 10,
-    marginRight: 6,
-    marginBottom: 6,
-  },
-});
+    textMuted: {
+      color: "#4B5563",
+      fontSize: 10,
+    },
+
+    link: {
+      color: "#2563EB",
+      textDecoration: "underline",
+      fontSize: 10,
+    },
+
+    badge: {
+      backgroundColor: "#E5E7EB",
+      paddingHorizontal: 8,
+      paddingVertical: 4,
+      borderRadius: 10,
+      fontSize: 10,
+      marginRight: 6,
+      marginBottom: 6,
+    },
+
+    icon: {
+      width: 12,
+      height: 12,
+      marginRight: -5,
+    },
+  });
+
+  
+  const normalizeUrl = (url) => {
+    if (!url) return null
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      return url
+    }
+    return `https://${url}`
+  }
 
   return (
     <Document>
@@ -103,28 +135,85 @@ const ResumePdf = ({ personal, experience, education, projects, skills, t }) => 
           <Text style={styles.name}>
             {personal?.name || "Seu Nome"}
           </Text>
+          <Text style={styles.area}>
+            {personal?.area}
+          </Text>
 
           <View style={styles.row}>
-            {personal?.email && <Text>{t("Email")}: {personal.email}</Text>}
-            {personal?.phone && <Text>{t("Phone")}: {personal.phone}</Text>}
-            {personal?.location && <Text>{t("Location")}: {personal.location}</Text>}
+            {personal?.email && <Image
+              src={"https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4e7.png"}
+              style={styles.icon}
+              alt="email icon"
+            />}
+            {personal?.email && <Text>
+              {personal.email}
+            </Text>}
+
+            {personal?.phone && <Image
+              src={"https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4de.png"}
+              style={styles.icon}
+              alt="phone icon"
+            />}
+            {personal?.phone && <Text>
+              {personal.phone}
+            </Text>}
+
+            {personal?.location &&
+              <Image
+                src={"https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4cd.png"}
+                style={styles.icon}
+                alt="location icon"
+              />
+            }
+            {personal?.location && <Text>
+              {personal.location}
+            </Text>}
           </View>
 
           <View style={styles.row}>
+            {personal?.linkedin &&
+              <Image
+                src={"https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f517.png"}
+                style={styles.icon}
+                alt="link icon"
+              />
+            }
             {personal?.linkedin && (
-              <Link src={personal.linkedin} style={styles.link}>
-                LinkedIn
-              </Link>
+              <Text>
+                <Link src={normalizeUrl(personal.linkedin)} style={styles.link}>
+                  LinkedIn
+                </Link>
+              </Text>
             )}
+
+            {personal?.github &&
+              <Image
+                src={"https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f517.png"}
+                style={styles.icon}
+                alt="link icon"
+              />
+            }
             {personal?.github && (
-              <Link src={personal.github} style={styles.link}>
-                GitHub
-              </Link>
+              <Text>
+                <Link src={normalizeUrl(personal.github)} style={styles.link}>
+                  GitHub
+                </Link>
+              </Text>
             )}
+
+            {personal?.portfolio &&
+              <Image
+                src={"https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4bc.png"}
+                style={styles.icon}
+                alt="portfolio icon"
+              />
+            }
             {personal?.portfolio && (
-              <Link src={personal.portfolio} style={styles.link}>
-                {t("Portfolio")}
-              </Link>
+              <Text>
+                <Link src={normalizeUrl(personal.portfolio)} style={styles.link}>
+                  {t("Portfolio")}
+                </Link>
+              </Text>
             )}
           </View>
         </View>
@@ -133,9 +222,9 @@ const ResumePdf = ({ personal, experience, education, projects, skills, t }) => 
         {personal?.summary && (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>
-              {t("Professional Summary")}
+              {t("About Me")}
             </Text>
-            <Text>{personal.summary}</Text>
+            <Text style={styles.itemSummary}>{personal.summary}</Text>
           </View>
         )}
 
@@ -148,19 +237,21 @@ const ResumePdf = ({ personal, experience, education, projects, skills, t }) => 
 
             {experience.map((exp, index) => (
               <View key={index} style={styles.itemExperience}>
-                <Text style={styles.subtitle}>{exp.role}</Text>
-                <Text>{exp.company}</Text>
+                <View style={{gap: 4}}>
+                  <Text style={styles.subtitle}>{exp.role}</Text>
+                  <Text>{exp.company}</Text>
 
-                {exp.location && (
-                  <Text style={styles.textMuted}>{exp.location}</Text>
-                )}
+                  {exp.location && (
+                    <Text style={styles.textMuted}>{exp.location}</Text>
+                  )}
 
-                <Text style={styles.textMuted}>
-                  {exp.start} -{" "}
-                  {exp.end === "Currently"
-                    ? t("Currently")
-                    : exp.end}
-                </Text>
+                  <Text style={styles.textMuted}>
+                    {exp.start} -{" "}
+                    {exp.end === "Currently"
+                      ? t("Currently")
+                      : exp.end}
+                  </Text>
+                </View>
 
                 {exp.description && (
                   <Text>{exp.description}</Text>
@@ -227,12 +318,12 @@ const ResumePdf = ({ personal, experience, education, projects, skills, t }) => 
 
                 <View style={styles.row}>
                   {project.url && (
-                    <Link src={project.url} style={styles.link}>
+                    <Link src={normalizeUrl(project.url)} style={styles.link}>
                       {t("Live Demo")}
                     </Link>
                   )}
                   {project.github && (
-                    <Link src={project.github} style={styles.link}>
+                    <Link src={normalizeUrl(project.github)} style={styles.link}>
                       {t("Source Code")}
                     </Link>
                   )}

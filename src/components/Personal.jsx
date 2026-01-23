@@ -33,6 +33,17 @@ const Personal = () => {
           </Field>
 
           <Field>
+            <FieldLabel htmlFor="personal.area">{t('Area of Work')}:</FieldLabel>
+            <Input
+              {...register("personal.area")}
+              type="text"
+              placeholder={t('Area of Work...')}
+              className={errors.personal?.area ? "border-red-500 focus-visible:border-red-500" : ""}
+            />
+            {errors.personal?.area && <div className="text-red-500 text-xs">{errors.personal?.area.message}</div>}
+          </Field>
+
+          <Field>
             <FieldLabel htmlFor="personal.email">{t('Email')}:</FieldLabel>
             <Input
               {...register("personal.email")}

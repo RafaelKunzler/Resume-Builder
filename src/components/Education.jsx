@@ -169,7 +169,7 @@ const Education = () => {
         {educations?.map((edu, index) => (
           <div key={index}>
             {editingIndex === index ? (
-              // Edit form - temporarily disable validation
+              // Edit form using local state
               <Card className="p-4 border-2 border-green-200">
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="font-semibold text-lg">{t('Edit Education')}</h3>
@@ -192,67 +192,71 @@ const Education = () => {
                 </div>
                 <FieldGroup>
                   <Field>
-                    <FieldLabel htmlFor="educationForm.institution">{t('Institution')}: </FieldLabel>
+                    <FieldLabel>{t('Institution')}: </FieldLabel>
                     <Input
-                      {...register("educationForm.institution", { required: false })}
+                      value={editFormData.institution}
+                      onChange={(e) => setEditFormData({...editFormData, institution: e.target.value})}
                       type="text"
                       placeholder={t('Enter Institution name...')}
                     />
                   </Field>
                   <Field>
-                    <FieldLabel htmlFor="educationForm.qualification">{t('Qualification/Degree')}: </FieldLabel>
+                    <FieldLabel>{t('Qualification/Degree')}: </FieldLabel>
                     <Input
-                      {...register("educationForm.qualification", { required: false })}
+                      value={editFormData.qualification}
+                      onChange={(e) => setEditFormData({...editFormData, qualification: e.target.value})}
                       type="text"
                       placeholder={t('e.g., Bachelor of Science in Computer Science...')}
                     />
                   </Field>
                   <Field>
-                    <FieldLabel htmlFor="educationForm.location">{t('City, State/Country (optional)...')}</FieldLabel>
+                    <FieldLabel>{t('City, State/Country (optional)...')}</FieldLabel>
                     <Input
-                      {...register("educationForm.location", { required: false })}
+                      value={editFormData.location}
+                      onChange={(e) => setEditFormData({...editFormData, location: e.target.value})}
                       type="text"
                       placeholder={t('City, State/Country (optional)...')}
                     />
                   </Field>
                   <FieldGroup className="grid max-w-sm grid-cols-2">
                     <Field>
-                      <FieldLabel htmlFor="educationForm.start">{t('Start Year')}:</FieldLabel>
+                      <FieldLabel>{t('Start Year')}:</FieldLabel>
                       <Input
-                        {...register("educationForm.start", { required: false })}
+                        value={editFormData.start}
+                        onChange={(e) => setEditFormData({...editFormData, start: e.target.value})}
                         type="text"
                         placeholder={t('MM/YYYY')}
-                        onChange={(e) => handleDateInputChange(e, setValue, "educationForm.start")}
                       />
                     </Field>
                     <Field>
-                      <FieldLabel htmlFor="educationForm.end">{t('End Year')}:</FieldLabel>
+                      <FieldLabel>{t('End Year')}:</FieldLabel>
                       <Input
-                        {...register("educationForm.end", { required: false })}
+                        value={editFormData.end}
+                        onChange={(e) => setEditFormData({...editFormData, end: e.target.value})}
                         type="text"
                         placeholder={t('MM/YYYY')}
                         disabled={checked}
-                        onChange={(e) => handleDateInputChange(e, setValue, "educationForm.end")}
                       />
                     </Field>
                   </FieldGroup>
                   <Field className="flex items-center space-x-2">
                     <Checkbox
-                      id="education-current"
+                      id="education-current-edit"
                       checked={checked}
                       onCheckedChange={handleCheckedChange}
                     />
                     <label
-                      htmlFor="education-current"
+                      htmlFor="education-current-edit"
                       className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
                       {t('Currently studying here')}
                     </label>
                   </Field>
                   <Field>
-                    <FieldLabel htmlFor="educationForm.takeaways">{t('Key Takeaways & Achievements')}:</FieldLabel>
+                    <FieldLabel>{t('Key Takeaways & Achievements')}:</FieldLabel>
                     <Textarea
-                      {...register("educationForm.takeaways", { required: false })}
+                      value={editFormData.takeaways}
+                      onChange={(e) => setEditFormData({...editFormData, takeaways: e.target.value})}
                       placeholder={t('Enter key courses, projects, honors, or achievements...')}
                     />
                   </Field>

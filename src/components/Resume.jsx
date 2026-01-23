@@ -35,32 +35,35 @@ const Resume = () => {
     name: "skills",
   })
 
+
+
   return (
     <div className="max-w-4xl mx-auto p-8 bg-white text-gray-900">
-     
-      
+
+
       {/* Header Section */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-6">{personal?.name || "Seu Nome"}</h1>
+        <h1 className="text-4xl font-bold mb-2">{personal?.name || "Seu Nome"}</h1>
+        <h1 className="text-2xl mb-6 text-gray-500">{personal?.area}</h1>
         <div className="flex flex-col gap-4 text-sm text-gray-600">
           <div className="flex gap-4">
-            {personal?.email && <span>{t('Email')}: {personal.email}</span>}
-            {personal?.phone && <span>{t('Phone')}: {personal.phone}</span>}
-            {personal?.location && <span>{t('Location')}: {personal.location}</span>}
+            {personal?.email && <span><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4e7.png" className="w-4 h-4 mr-2 inline" alt="email" /> {personal.email}</span>}
+            {personal?.phone && <span><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4de.png" className="w-4 h-4 mr-2 inline" alt="phone" /> {personal.phone}</span>}
+            {personal?.location && <span><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4cd.png" className="w-4 h-4 mr-2 inline" alt="location" /> {personal.location}</span>}
           </div>
           <div className="flex gap-4">
-            {personal?.linkedin && <a href={personal.linkedin} target="_blank" className='text-blue-600 hover:underline'>{t('LinkedIn')}</a>}
-            {personal?.github && <a href={personal.github} target="_blank" className='text-blue-600 hover:underline'>{t('GitHub')}</a>}
-            {personal?.portfolio && <a href={personal.portfolio} target="_blank" className='text-blue-600 hover:underline'>{t('Portfolio')}</a>}
+            {personal?.linkedin && <a href={personal.linkedin} target="_blank" className='text-blue-600 hover:underline'><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f517.png" className="w-4 h-4 mr-2 inline" alt="link" />{t('LinkedIn')}</a>}
+            {personal?.github && <a href={personal.github} target="_blank" className='text-blue-600 hover:underline'><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f517.png" className="w-4 h-4 mr-2 inline" alt="link" />{t('GitHub')}</a>}
+            {personal?.portfolio && <a href={personal.portfolio} target="_blank" className='text-blue-600 hover:underline'><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4bc.png" className="w-4 h-4 mr-2 inline" alt="portfolio" />{t('Portfolio')}</a>}
           </div>
         </div>
       </div>
 
       {/* Summary Section */}
       {personal?.summary && (
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">{t('Professional Summary')}</h2>
-          <p className="text-gray-700 leading-relaxed">{personal.summary}</p>
+        <div className="mb-8 ">
+          <h2 className="text-2xl font-semibold mb-3 border-b-2 border-gray-300 pb-1">{t('About Me')}</h2>
+          <p className="text-gray-700 leading-snug border-l-4 border-slate-500 pl-4 whitespace-pre-line">{personal.summary}</p>
         </div>
       )}
 
@@ -150,11 +153,11 @@ const Resume = () => {
       )}
 
       <PDFDownloadLink
-        document={<ResumePdf 
-          personal={personal} 
-          experience={experience || []} 
-          education={education} 
-          projects={projects} 
+        document={<ResumePdf
+          personal={personal}
+          experience={experience || []}
+          education={education}
+          projects={projects}
           skills={skills}
           t={t} />}
         fileName="resume.pdf"
